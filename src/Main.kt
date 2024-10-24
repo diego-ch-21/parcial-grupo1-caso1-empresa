@@ -33,10 +33,10 @@ fun main() {
     empresa.agregarCliente(cliente2)
 
     // Mostrar datos de la empresa
-    println(empresa.mostrarEmpresa())
+    print(empresa.mostrarEmpresa())
     // Mostrar datos de empleados
-    println(empresa.mostrarPersonal())
+    print(empresa.mostrarPersonal())
     //Mostrar datos de clientes
-    println(empresa.mostrarClientes())
+    print(empresa.mostrarClientes())
 
 }

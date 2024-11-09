@@ -1,42 +1,49 @@
-package main
-import Empresa
-import Gender
-// Ejemplo de uso
-fun main() {
-    // Creación de una empresa
-    val empresa = Empresa("Edu-Read")
 
-    // Creación de empleados y directivos
-    val empleado1 = Empleado("Juan", "Pérez", "1985-10-10", Gender.MASCULINO, 2500.00,"subordinado")
-    val empleado2 = Empleado("David", "Fernandez", "2001-03-22", Gender.MASCULINO, 1800.50,"subordinado")
-    val directivo1= Empleado("Diego", "Cuchillo", "2002-07-11", Gender.MASCULINO, 8000.00, "directivo")
 
-    // Agregar empleados y directivos a la empresa
-    empresa.agregarEmpleado(empleado1)
-    empresa.agregarEmpleado(empleado2)
-    empresa.agregarEmpleado(directivo1)
+fun main(){
+    var fecha=Fecha(7,-4,2023)
+    println(fecha.toString())
 
-    // Agregar subordinados al directivo
-    directivo1.agregarSubordinado(empleado1)
-    directivo1.agregarSubordinado(empleado2)
+    var p1=Persona("David", "Fernandez", fecha, Gender.MASCULINO)
+    println(p1.toString())
 
-    // Agregar directivo a empleado
-    empleado1.agregarDirectivo(directivo1)
-    empleado1.agregarDirectivo(directivo1)
+    var e1=Empleado("Diego", "Cuchillo", fecha, Gender.FEMENINO, 500, "Gerente Ventas")
+    println(e1.toString())
 
-    // Creación de clientes
-    val cliente1 = Cliente("Carlos", "Martínez", "1980-12-02", Gender.MASCULINO, 987654321)
-    val cliente2 = Cliente("Laura", "Fernández", "1995-07-15", Gender.FEMENINO, 912345678)
+    var c1=Cliente("Juana", "De Arco", fecha, Gender.FEMENINO, 98987)
+    println(c1.toString())
 
-    // Agregar clientes a la empresa
-    empresa.agregarCliente(cliente1)
-    empresa.agregarCliente(cliente2)
+    var c2=Cliente("Mario", "Bros", fecha, Gender.MASCULINO, 984596321)
 
-    // Mostrar datos de la empresa
-    print(empresa.mostrarEmpresa())
-    // Mostrar datos de empleados
-    print(empresa.mostrarPersonal())
-    //Mostrar datos de clientes
-    print(empresa.mostrarClientes())
+    var empresa= Empresa("Domotic")
+    println(empresa.toString())
 
+    var e2=empresa.agregarEmpleado("Emma", "Watson", Fecha(8,12,2001),
+        Gender.MASCULINO, 1000, "Gerente Tecnico")
+    println(e2.toString())
+
+    var e3 = empresa.agregarEmpleado("John", "Doe", Fecha(10, 10, 2000),
+        Gender.MASCULINO, 800, "Asistente")
+
+    var e4 = empresa.agregarEmpleado("Alice", "Johnson", Fecha(15, 5, 1995),
+        Gender.FEMENINO, 1200, "Analista de Datos")
+
+    var e5 = empresa.agregarEmpleado("Robert", "Smith", Fecha(22, 3, 1988),
+        Gender.MASCULINO, 950)
+
+    var e6 = empresa.agregarEmpleado("Laura", "Martinez", Fecha(30, 7, 1980),
+        Gender.FEMENINO, 2000, "Directora de Finanzas")
+
+    println("------")
+    empresa.agregarSubordinado(e2,e3)
+    empresa.agregarSubordinado(e2,e5)
+    empresa.agregarSubordinado(e3,e6)
+    empresa.mostrarEmpleados()
+    println("Superior de e2: ${e3.superior}")
+    println("------")
+    empresa.agregarCliente(c1)
+    empresa.agregarCliente(c2)
+    empresa.mostrarClientes()
+    println("------")
+    println(empresa.toString())
 }

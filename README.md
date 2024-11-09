@@ -1,3 +1,4 @@
+# Parcial - ejercicio 1
 # Grupo 1
 - Galvez Arango, Alder Benjamin	
 - cuchillo Huillcaya diego armando	
